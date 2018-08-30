@@ -32,36 +32,59 @@ var currentWord; //the word that needs to be guessed represented by Dashes, when
 
 var dashes = []; //current word in dashes
 
-var userGuess;
 
-var remainGuesses = 12; //maxTries
+var remainingGuesses;
 
 var wins = 0;
 
-var guessedLetters = [];
-
-
+var wrongLetters = [];
 
 function gameBegin() {
     currentWord = superHeroes[Math.floor(Math.random() * superHeroes.length)];
+    remainingGuesses = 12;
     for (var i = 0; i < currentWord.length; i++) {
-    dashes[i] = "_";
+    dashes.push ('_');
+    }
+    document.querySelector("#currentWord").innerHTML = (dashes.join(" "));
 }
-    guessedLetters = currentWord.length;
-    while (remainGuesses > 0) {
-    prompt (dashes.join(" "));  
-}
+
 document.onkeyup = function(event) {
-          userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-          for (var j = 0; j < currentWord.length; j++){
-              if (guessedLetters[j] === userGuess) {
-                  dashes [j] = userGuess;
-                  numberOfGuesses--;
-              }
-              console.log (guessedLetters[j]);
-          }
-        }
+    var letter = event.key.toLowerCase();
+    // for (var j = 0; j > remainingGuesses; j++) {
+    if (currentWord.indexOf(letter) === -1){ 
+    wrongLetters.push(letter);
+    document.querySelector("#guessedLetters").innerHTML = (letter);
+    remainingGuesses--;
+    document.querySelector("#remainingGuesses").innerHTML = remainingGuesses.join(" , ");
 }
+    else {
+       for (var j = 0; j < currentWord.length; i++);
+    if (currentWord[i] === letter);{
+        dashes[i] = letter;
+    }   
+    }
+}
+
+// }
+    
+
+//     // Captures the key press, converts it to lowercase, and saves it to a variable.
+//     var letter = event.key.toLowerCase();
+//     guessedLetters = currentWord.length;
+//     while (remainGuesses > 0) {
+//     prompt (dashes.join(" "));  
+// }
+// document.onkeyup = function(event) {
+//           userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+//           for (var j = 0; j < currentWord.length; j++){
+//               if (guessedLetters[j] === userGuess) {
+//                   dashes [j] = userGuess;
+//                   numberOfGuesses--;
+//               }
+//               console.log (guessedLetters[j]);
+//           }
+//         }
+// }
 
 
 
