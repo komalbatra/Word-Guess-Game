@@ -11,27 +11,34 @@
     <script src="assets/javascript/game.js" type="text/javascript"></script>
 </head>
 <body>
-
-        <img id="youwin-image" src="assets/images/you-win.png" alt="Winning Image" />
-        <img id="gameover-image" src="assets/images/gameover.png" alt="Game Over Image" />
-        <h2 id="pressKeyTryAgain">Press Any Key to Try Again!</h2>
-        <img id="hangmanImage" src="" alt="" />
-
-<h1>Super Hero Challenge</h1>
-
-<h1>Press any key to get started!</h1>
-
-<h2>Wins:</h2>
-<h2 id="wins"></h2>
-
-<h1>Guess this Superhero</h1>
-<h1 id="currentWord"></h1>
-
-<h2>Number of Guesses Remaining</h2>
-<h2 id="remainingGuesses"></h2>
-
-<h2>Letters Already Guessed</h2>
-<h2 id="guessedLetters"></h2>
+    <div>
+        <div class="jumbotron">
+            <h1 class="display-4">SuperHero Challenge!</h1>
+            <p class="lead">Press any key to get started!</p>
+            <hr class="my-4">
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                    <div><img class="img-thumbnail" id="correctGuessPic" src="assets/images/super.jpg" alt=default></div>
+                                </div>
+            <div class="col-lg-8">
+                    <h2>Wins:</h2>
+                    <h2 id="wins"></h2>
+                    
+                    <h1>Guess this Superhero</h1>
+                    <h1 id="currentWord"></h1>
+                    
+                    <h2>Number of Guesses Remaining</h2>
+                    <h2 id="remainingGuesses"></h2>
+                    
+                    <h2>Letters Already Guessed</h2>
+                    <h2 id="guessedLetters"></h2>
+                    
+                    <p id ="result"></p>
+                </div>
+        </div>
+    </div>
+        
 
 <script>
 gameBegin();

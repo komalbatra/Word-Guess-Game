@@ -32,38 +32,78 @@ var currentWord; //the word that needs to be guessed represented by Dashes, when
 
 var dashes = []; //current word in dashes
 
+var wrongLetters = [];
 
 var remainingGuesses;
 
-var wins = 0;
+var wins;
 
-var wrongLetters = [];
 
 function gameBegin() {
     currentWord = superHeroes[Math.floor(Math.random() * superHeroes.length)];
     remainingGuesses = 12;
     for (var i = 0; i < currentWord.length; i++) {
-    dashes.push ('_');
+    dashes.push ("_");
     }
-    document.querySelector("#currentWord").innerHTML = (dashes.join(" "));
+    document.querySelector("#currentWord").innerHTML = dashes.join(" ");
 }
 
-document.onkeyup = function(event) {
-    var letter = event.key.toLowerCase();
-    // for (var j = 0; j > remainingGuesses; j++) {
+document.onkeyup = function (event) {
+    var letter = String.fromCharCode (event.keyCode).toLowerCase();
     if (currentWord.indexOf(letter) === -1){ 
     wrongLetters.push(letter);
-    document.querySelector("#guessedLetters").innerHTML = (letter);
+    document.querySelector ("#guessedLetters").innerHTML = wrongLetters.join(" , ");
     remainingGuesses--;
-    document.querySelector("#remainingGuesses").innerHTML = remainingGuesses.join(" , ");
-}
-    else {
-       for (var j = 0; j < currentWord.length; i++);
-    if (currentWord[i] === letter);{
-        dashes[i] = letter;
-    }   
+    document.querySelector ("#remainingGuesses").innerHTML = remainingGuesses;
+    } else {
+    for (var i = 0; i < currentWord.length; i++) {
+        if (currentWord[i] === letter) {
+            dashes[i] = letter;
+            remainingGuesses--;
+            document.querySelector ("#remainingGuesses").innerHTML = remainingGuesses;
+        }
+        }
+    document.querySelector ("#currentWord").innerHTML = dashes.join(" ");
     }
+    resultCheck();
 }
+
+
+function resultCheck(){
+if (dashes.indexOf("_") === -1)
+{
+    document.getElementById("correctGuessPic").src = "../assets/images/superman.png"
+}
+else if (remainingGuesses === 0) {
+    // document.querySelector ("#result").innerHTML = ("You Won");
+    Console.log ("You Lost");
+}
+}
+    
+    
+    
+
+
+
+
+
+// NEED TO ADD: TYPEOF (letter)is not a string
+// else if (currentWord.indexOf(letter) > -1){
+//     console.log (letter);
+//     
+
+// }
+
+// // {
+// //     for (var i = 0; i < currentWord.length; i++);{
+//     if (currentWord.[i] === letter) {
+//         dashes[i] = letter;
+//         document.querySelector ("#currentWord").innerHTML = dashes.join (" ");
+       
+//     }   
+//     }
+
+
 
 // }
     
@@ -124,4 +164,3 @@ document.onkeyup = function(event) {
 
 // for (var i=0) {
 
-// }
