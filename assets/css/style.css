@@ -1,0 +1,28 @@
+body {
+    background-color: goldenrod;
+}
+
+#head {
+    color: brown;
+    font-size: 40px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.lead {
+    text-align: center;
+}
+
+#currentWord {
+    color: brown;
+}
+
+#result {
+    font-size: 50px;
+    color: red;
+    text-align: center;
+}
+
+.gamearea {
+    background: white;
+}
